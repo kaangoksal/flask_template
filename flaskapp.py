@@ -8,16 +8,24 @@ CORS(app)
 # Database Settings
 # ================================================================
 
-postgresql_username = "db_user"
-postgresql_password = "password"
-postgresql_host = "localhost"
-databse_name = "flask_server_db"
+# postgresql_username = "db_user"
+# postgresql_password = "password"
+# postgresql_host = "localhost"
+# databse_name = "flask_server_db"
+#
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + postgresql_username + ':' + postgresql_password + '@' + postgresql_host + '/' + databse_name
+#
+# db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Database Settings for SQLITE
+# ================================================================
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + postgresql_username + ':' + postgresql_password + '@' + postgresql_host + '/' + databse_name
-
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////./test.db'
 db = SQLAlchemy(app)
+
 
 # ================================================================
 
@@ -26,7 +34,7 @@ db = SQLAlchemy(app)
 
 app.config['server_addr'] = "http://www.example.com"
 app.config['server_port'] = 5001
-app.config['server_path'] = app.config["server_addr"] + ":" + app.config["server_port"]
+app.config['server_path'] = app.config["server_addr"] + ":" + str(app.config["server_port"])
 
 # ================================================================
 

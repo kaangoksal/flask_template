@@ -1,0 +1,3 @@
+uwsgi
+sqlalchemy
+flask-sqlalchemy
